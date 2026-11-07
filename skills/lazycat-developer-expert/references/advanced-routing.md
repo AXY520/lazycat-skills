@@ -22,6 +22,13 @@ package: cloud.lazycat.app.routing-demo
 version: 0.0.1
 name: Routing Demo
 description: 高级 HTTP 路由示例
+locales:
+  zh-CN:
+    name: 高级 HTTP 路由示例
+    description: 配置路径保留、域名前缀与多个后端服务
+  en-US:
+    name: Routing Demo
+    description: Configure path preservation, domain prefixes, and multiple backend services
 ```
 
 ### `lzc-manifest.yml`

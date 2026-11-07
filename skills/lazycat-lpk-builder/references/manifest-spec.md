@@ -2,9 +2,11 @@
 
 依据：[官方 manifest 规范](https://developer.lazycat.cloud/spec/manifest.html)。本文件只列常用能力；先按 `references/spec-sync.md` 校准原文和目标版本。元数据、权限、资源导入写入 `package.yml`，manifest 只描述运行结构。
 
+2026-11-07 重新读取官方 raw（master）；原文 SHA-256：`7d5ba18a72ad78aebd08caba9a8604b0c3ab8b0a19740c4f654e6ecc2190faa9`。
+
 ## 1. 顶层与应用字段
 
-顶层常用项：`usage`、`application`、`services`、`ext_config`。不要把元数据或 Docker Compose 顶层字段混入。
+顶层运行字段为 `application`、`services`、`ext_config` 等。`usage` 是可选使用须知：**只有用户明确要求时才添加**，未要求时不生成顶层 `usage` 或 `locales.*.usage`，也不生成空字段。用户要求时按其意图填写并在 package.yml 中补齐中英文译文；不擅自扩写已有须知。元数据及所有 `locales` 仍只放 package.yml，不混入运行清单。
 
 | application 字段 | 类型/注意事项 |
 | --- | --- |
@@ -78,7 +80,7 @@ application:
       prefix_domain: admin
 ```
 
-`admin` 入口访问 `admin-<实际subdomain>.<rootdomain>`；前缀域名自动归属同一应用，无需另声明域名列表。**EntryConfig.prefix_domain**、**UpstreamConfig.domain_prefix**、**InjectConfig.prefix_domain** 是不同字段，不能互换。入口标题可在 package.yml.locales 中配置 `entries.<id>.title`。
+`admin` 入口访问 `admin-<实际subdomain>.<rootdomain>`；前缀域名自动归属同一应用，无需另声明域名列表。**EntryConfig.prefix_domain**、**UpstreamConfig.domain_prefix**、**InjectConfig.prefix_domain** 是不同字段，不能互换。已声明入口时，必须在 package.yml.locales 的 `zh-CN`、`en-US` 两种语言中按官方 `entries.<id>.title` 规则配置标题；两种语言的入口 ID 必须与此处一致。
 
 ## 5. 路由与 TCP/UDP
 

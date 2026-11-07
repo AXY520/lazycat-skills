@@ -23,6 +23,14 @@
 package: cloud.lazycat.app.outline
 version: 0.0.1
 name: Outline
+description: 支持 OIDC 单点登录的 Outline 知识库
+locales:
+  zh-CN:
+    name: Outline 知识库
+    description: 支持 OIDC 单点登录的 Outline 知识库
+  en-US:
+    name: Outline
+    description: An Outline knowledge base with OIDC single sign-on
 ```
 
 ```yaml

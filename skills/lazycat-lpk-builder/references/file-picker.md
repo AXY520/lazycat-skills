@@ -2,6 +2,8 @@
 
 有上传／下载功能的商店应用必须接入网盘自动拦截文件选择器。应用已有浏览器文件入口、希望通过 inject 接入而不修改上游源码时，使用本指南。审核规则见[官方上架补充要求](https://developer.lazycat.cloud/store-rule.html)。生成配置前先执行同技能 `references/spec-sync.md` 校准目标版本。
 
+上架前必须执行第四节的功能验收；只下载脚本或只增加 browser inject，均不算完成接入。
+
 ## 一、准备脚本与构建内容
 
 前置条件：目标 lzcos 支持 `browser` / `request` inject 和 `ctx.proxy`；字段及 API 见[官方脚本注入说明](https://developer.lazycat.cloud/advanced-injects.html)。
@@ -102,8 +104,4 @@ application:
 
 - [自动拦截文件选择器](https://developer.lazycat.cloud/lazycat-file-picker-auto-intercept.html)
 - [上架审核补充规则](https://developer.lazycat.cloud/store-rule.html)
-- 核对日期：2026-11-06；[官方源仓库原文](https://gitee.com/lazycatcloud/lzc-developer-doc/blob/82702da425c5f5324318fc2a75b9ef20bb1311af/docs/lazycat-file-picker-auto-intercept.md)。该要求在旧基线已有，本次补齐技能遗漏。
-
----
-
-> 上游基线：[lzc-developer-doc](https://gitee.com/lazycatcloud/lzc-developer-doc) @ 82702da（2026-10-30）｜本地更新：2026-11-06
+- 核对日期：2026-11-07；[官方 raw 原文](https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/lazycat-file-picker-auto-intercept.md)，SHA-256：`6171dca4e0cf7134eaa710a0e02921c1fd02c3c54b056c58ae6fbe5e2ee81090`。

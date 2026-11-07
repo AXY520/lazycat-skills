@@ -40,6 +40,13 @@ package: cloud.lazycat.app.advanced-route-demo
 version: 0.0.1
 name: Advanced Route Demo
 description: Upstream 路由示例
+locales:
+  zh-CN:
+    name: 高级路由示例
+    description: 使用 upstream 配置路径保留与域名前缀分流
+  en-US:
+    name: Advanced Route Demo
+    description: An upstream routing example with path preservation and domain prefix routing
 permissions:
   required:
     - net.internet
@@ -151,6 +158,13 @@ package: cloud.lazycat.app.proxy-routing-demo
 version: 0.0.1
 name: Proxy Routing Demo
 description: 应用内反向代理示例
+locales:
+  zh-CN:
+    name: 反向代理示例
+    description: 应用内反向代理示例
+  en-US:
+    name: Proxy Routing Demo
+    description: An in-app reverse proxy example
 ```
 
 ### `lzc-manifest.yml`

@@ -1,11 +1,18 @@
 ---
 name: lazycat-dynamic-deploy
-description: 懒猫微服应用需要部署参数、Go 模板清单渲染、网盘文件选择器接入或 browser/request/response 脚本注入时使用的动态部署指南。
+description: 懒猫微服 LPK V2 应用需要部署参数、Go 模板清单渲染、网盘文件选择器接入或 browser/request/response 脚本注入时使用的动态部署指南。
 ---
 
 # 懒猫微服动态部署与注入
 
 任何配置生成前，先确认目标 `lzcos` 与 `lzc-cli`，并读取 `references/spec-sync.md` 按流程现场校准官方规范。本文示例按 LPK V2（`lzcos >= 1.5.0`、`lzc-cli >= 2.0.0`）组织；动态渲染能力始于 `lzcos 1.3.8+`。
+
+## 应用产物约束
+
+- **仅支持 LPK V2**：V1 项目先迁移到 V2；目标低于 lzcos 1.5.0 或 lzc-cli 2.0.0 时说明升级要求，不生成 V1 包或降级配置。
+- **完整中英文本地化**：完整 `package.yml` 必须填写 `locales.zh-CN` 与 `locales.en-US`，两种语言均有非空且语义对应的 `name`、`description`；不能用顶层回退代替。已声明入口的标题也按官方本地化规则补齐两种语言。
+- **usage 由用户选择**：仅在用户明确要求使用须知时添加 manifest 顶层 `usage` 及 `locales.*.usage`，届时同时提供中英文；默认连空字段也不添加。保留用户已有内容，不擅自扩写。
+- **上架前落实适配**：核对当前审核要求；有上传／下载功能时必须接入[官方网盘文件拦截](https://developer.lazycat.cloud/lazycat-file-picker-auto-intercept.html)，同时配置 browser inject 与同源 request bridge，实际验证本地文件、网盘及共享目录。
 
 ## 选择正确层次
 

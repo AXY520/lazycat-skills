@@ -60,7 +60,15 @@
 package: org.snyh.netmap
 version: 0.1.0
 name: netmap
+description: 通过部署参数配置目标地址与监听端口
 min_os_version: 1.5.0
+locales:
+  zh-CN:
+    name: 网络端口映射
+    description: 通过部署参数配置目标地址与监听端口
+  en-US:
+    name: Netmap
+    description: Configure the target address and listening port through deployment parameters
 ```
 
 ```yaml

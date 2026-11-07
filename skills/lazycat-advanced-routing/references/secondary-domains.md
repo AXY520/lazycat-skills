@@ -32,6 +32,13 @@ package: cloud.lazycat.app.prefix-routing-demo
 version: 0.0.1
 name: Prefix Routing Demo
 description: 域名前缀分流示例
+locales:
+  zh-CN:
+    name: 域名前缀分流示例
+    description: 使用域名前缀访问不同的后端服务
+  en-US:
+    name: Prefix Routing Demo
+    description: Route domain prefixes to different backend services
 ```
 
 ### `lzc-manifest.yml`

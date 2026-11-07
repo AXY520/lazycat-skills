@@ -4,7 +4,7 @@
 
 ## 1. 项目定位
 
-这是一个面向懒猫微服 (LazyCat MicroServer) 平台的 **AI 技能包仓库**，通过 `npx skills add whoamihappyhacking/lazycat-skills` 安装。技能包的消费者是 **AI 智能体**，而非终端用户。
+这是一个面向懒猫微服 (LazyCat MicroServer) 平台的 **AI 技能包仓库**，通过 `npx skills add AXY520/lazycat-skills` 安装当前维护版本。技能包的消费者是 **AI 智能体**，而非终端用户。
 
 ## 2. 项目结构约束
 
@@ -46,6 +46,13 @@ description: 一句话描述（用于触发匹配，务必精准）
 3. **示例代码必须可用**：所有 YAML/bash 示例必须是真实可执行的，不要放伪代码
 4. **中文优先**：本技能包面向中文开发者，所有文档使用中文编写
 
+### 应用产物强制约束
+
+- **仅支持 LPK V2**：V1 项目先迁移到 V2；目标低于 lzcos 1.5.0 或 lzc-cli 2.0.0 时说明升级要求，不生成 V1 包或降级配置。
+- **完整中英文本地化**：完整 `package.yml` 必须填写 `locales.zh-CN` 与 `locales.en-US`，两种语言均有非空且语义对应的 `name`、`description`；不能用顶层回退代替。已声明入口的标题也按官方本地化规则补齐两种语言。
+- **usage 由用户选择**：仅在用户明确要求使用须知时添加 manifest 顶层 `usage` 及 `locales.*.usage`，届时同时提供中英文；默认连空字段也不添加。保留用户已有内容，不擅自扩写。
+- **上架前落实适配**：核对当前审核要求；有上传／下载功能时必须接入[官方网盘文件拦截](https://developer.lazycat.cloud/lazycat-file-picker-auto-intercept.html)，同时配置 browser inject 与同源 request bridge，实际验证本地文件、网盘及共享目录。
+
 ### 修改技能时的同步规则
 - `lazycat-lpk-builder/SKILL.md` 和 `lazycat-developer-expert/references/lpk-builder.md` 内容高度重叠，**修改其一时必须同步修改另一个**
 - `references/` 下的文件如果在多个技能中共享（如 `build-spec.md`、`manifest-spec.md`、`store-publish.md`、`resource-export.md`、`app-interconnect.md`、`spec-sync.md`），修改时必须同步所有副本
@@ -58,7 +65,7 @@ description: 一句话描述（用于触发匹配，务必精准）
 - 官方页面互相冲突或 AI Pod 等专题不在通用源仓库时，应读取专门来源、声明冲突并核实目标实现，不无条件套用一个来源猜测行为。
 - 编写或修改任何规范类文档时：
   1. **先拉取官方原文核对**，不要凭记忆或凭本仓库旧文推断字段名；
-  2. 本仓库内容与官方冲突时，**一律以官方为准**；
+  2. 平台字段、语义与版本门槛以官方为准；上述应用产物约束是本仓库在合法 schema 内的更严格交付要求（如完整双语 locales、usage 默认省略），不能因官方将字段标为可选而放宽；
   3. 已知会漂移的字段名/版本门槛，优先写成"见官方链接"而非复制一份可能过期的副本。
 
 ### 打包件生成（必须）

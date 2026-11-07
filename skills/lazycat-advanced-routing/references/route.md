@@ -55,6 +55,13 @@ package: cloud.lazycat.app.route-demo
 version: 0.0.1
 name: Route Demo
 description: HTTP 路由示例
+locales:
+  zh-CN:
+    name: HTTP 路由示例
+    description: 将 HTTP 请求转发到后端并提供静态内容
+  en-US:
+    name: Route Demo
+    description: An HTTP routing example with backend and static content routes
 ```
 
 ### `lzc-manifest.yml`

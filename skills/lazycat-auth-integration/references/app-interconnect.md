@@ -33,7 +33,16 @@ http://app.cloud.lazycat.app.todo.lzcx/api/tasks
 ```yaml
 package: cloud.lazycat.app.example
 version: 0.1.0
+name: 应用委托访问示例
+description: 代表当前用户访问应用自身的 HTTP 入口
 min_os_version: 1.5.2
+locales:
+  zh-CN:
+    name: 应用委托访问示例
+    description: 代表当前用户访问应用自身的 HTTP 入口
+  en-US:
+    name: App Delegation Demo
+    description: Access this app's HTTP entry point on behalf of the current user
 permissions:
   required:
     - lzcapp.self_delegate
@@ -44,7 +53,16 @@ permissions:
 ```yaml
 package: cloud.lazycat.app.example
 version: 0.1.0
+name: 应用委托访问示例
+description: 代表当前用户访问其他应用的 HTTP 入口
 min_os_version: 1.5.2
+locales:
+  zh-CN:
+    name: 应用委托访问示例
+    description: 代表当前用户访问其他应用的 HTTP 入口
+  en-US:
+    name: App Delegation Demo
+    description: Access other apps over HTTP on behalf of the current user
 permissions:
   required:
     - lzcapp.user_delegate

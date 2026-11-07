@@ -37,6 +37,13 @@ package: cloud.lazycat.app.l4-demo
 version: 0.0.1
 name: L4 Demo
 description: TCP 四层转发测试
+locales:
+  zh-CN:
+    name: 四层转发示例
+    description: TCP 四层转发测试
+  en-US:
+    name: L4 Demo
+    description: A TCP layer 4 forwarding test
 ```
 
 ### `lzc-manifest.yml`
