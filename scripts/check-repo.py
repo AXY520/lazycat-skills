@@ -49,6 +49,11 @@ SHARED_GROUPS = (
         "skills/lazycat-auth-integration/references/app-interconnect.md",
         "skills/lazycat-developer-expert/references/app-interconnect.md",
     ),
+    (
+        "skills/lazycat-dynamic-deploy/references/file-picker.md",
+        "skills/lazycat-developer-expert/references/file-picker.md",
+        "skills/lazycat-lpk-builder/references/file-picker.md",
+    ),
     tuple(f"skills/{name}/references/spec-sync.md" for name in CALIBRATION_SKILLS),
     tuple(f"skills/{name}/scripts/sync-specs.py" for name in CALIBRATION_SKILLS),
 )

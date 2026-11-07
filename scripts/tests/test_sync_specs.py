@@ -194,6 +194,9 @@ class SyncSpecsTests(unittest.TestCase):
             "entries",
             "aipod-package-spec",
             "aipod-llms-full",
+            "changelog",
+            "store-review",
+            "file-picker",
         }
         self.assertTrue(required.issubset(sync_specs.PAGE_BY_TOPIC))
 

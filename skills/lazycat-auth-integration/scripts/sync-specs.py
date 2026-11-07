@@ -50,6 +50,7 @@ PAGES = (
     Page("public-api", "advanced-public-api", "独立鉴权与 public_path"),
     Page("oidc", "advanced-oidc", "OIDC 单点登录"),
     Page("headers", "http-request-headers", "HTTP 身份 Header"),
+    Page("changelog", "changelog", "系统版本变更"),
     Page("injects", "advanced-injects", "脚本注入"),
     Page("passwordless-login", "advanced-inject-passwordless-login", "免密登录专题"),
     Page("inject-dev-cookbook", "advanced-inject-request-dev-cookbook", "开发态注入 Cookbook"),
@@ -64,6 +65,8 @@ PAGES = (
     Page("skill-mcp", "resource-skill-mcp", "Skill / MCP 资源"),
     Page("resource-export", "spec/resource-export", "资源导出规范"),
     Page("store-submission", "store-submission-guide", "上架审核规则"),
+    Page("store-review", "store-rule", "上架补充审核要求"),
+    Page("file-picker", "lazycat-file-picker-auto-intercept", "网盘自动拦截文件选择器"),
     Page("gpu", "advanced-gpu", "GPU 加速"),
     Page("multi-instance", "advanced-multi-instance", "多实例"),
     # AI Pod 规范不在通用 Gitee 文档仓库中，只能从官方专页取得并用 digest 固定。

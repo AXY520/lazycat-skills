@@ -103,7 +103,7 @@ AI Pod 规范**不在通用 Gitee `lzc-developer-doc` 仓库中**。产出或修
 
 ## 6. 按需专题来源
 
-命中相关能力时，用 `--topic <topic>` 同步对应页面：
+命中相关能力时，用 `--topic <topic>` 同步对应页面。技能只收录应用开发、打包、部署与上架审核要求；`store-review` 只提取审核条款。用户组能力同时读取 `headers` 与 `changelog`，接入文件选择器时读取 `file-picker` 与 `store-review`：
 
 | topic | 能力 | raw markdown | 文档站 |
 | --- | --- | --- | --- |
@@ -127,6 +127,9 @@ AI Pod 规范**不在通用 Gitee `lzc-developer-doc` 仓库中**。产出或修
 | `skill-mcp` | Skill / MCP 资源 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/resource-skill-mcp.md> | <https://developer.lazycat.cloud/resource-skill-mcp.html> |
 | `resource-export` | 资源导出规范 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/spec/resource-export.md> | <https://developer.lazycat.cloud/spec/resource-export.html> |
 | `store-submission` | 上架审核规则 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/store-submission-guide.md> | <https://developer.lazycat.cloud/store-submission-guide.html> |
+| `changelog` | 系统版本与未发布状态 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/changelog.md> | <https://developer.lazycat.cloud/changelog.html> |
+| `store-review` | 上架补充条款（仅审核要求） | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/store-rule.md> | <https://developer.lazycat.cloud/store-rule.html> |
+| `file-picker` | 网盘自动拦截文件选择器 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/lazycat-file-picker-auto-intercept.md> | <https://developer.lazycat.cloud/lazycat-file-picker-auto-intercept.html> |
 | `gpu` | GPU 加速 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/advanced-gpu.md> | <https://developer.lazycat.cloud/advanced-gpu.html> |
 | `multi-instance` | 多实例 | <https://gitee.com/lazycatcloud/lzc-developer-doc/raw/master/docs/advanced-multi-instance.md> | <https://developer.lazycat.cloud/advanced-multi-instance.html> |
 

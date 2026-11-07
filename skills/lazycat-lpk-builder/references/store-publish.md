@@ -17,7 +17,7 @@ lzc-cli appstore copy-image alpine:3.18
 
 官方仓库限制：tag 按镜像 ID 固化；服务端强制 pull；镜像须公网可访问；未被商店应用引用的镜像可能被回收；仓库仅供微服使用，外部有访问限速。
 
-## 2. 八项审核检查
+## 2. 上架审核要求
 
 1. **资料完备**：logo、名称、描述、截图齐全；名称、描述、usage 支持多语言，语言标签按 BCP 47。V2 locales 放 package.yml。
 2. **可安装与加载**：测试首装、依赖可达、首次加载及加载响应。
@@ -28,7 +28,11 @@ lzc-cli appstore copy-image alpine:3.18
 7. **数据持久化**：重启、升级后数据不丢；实例模式改变须数据迁移/恢复方案。
 8. **免密登录**：支持 OIDC 或 inject 自动填充/学习等官方机制；用户首次/后续登录应满足官方弱感知体验要求。必须实际验证，不能只加一段 inject 就声称支持。
 
+9. **上传／下载**：必须接入懒猫网盘自动拦截文件选择器，未接入无法上架。读取同技能 `references/file-picker.md`，同时配置 browser inject 与同源 request bridge，并验证共享目录 `Owner` 转发；覆盖范围外的文件入口需单独接入。依据：[上架审核补充要求](https://developer.lazycat.cloud/store-rule.html)、[自动拦截文件选择器](https://developer.lazycat.cloud/lazycat-file-picker-auto-intercept.html)。
+
 免密依据：[OIDC](https://developer.lazycat.cloud/advanced-oidc.html)、[免密专题](https://developer.lazycat.cloud/advanced-inject-passwordless-login.html)。若上游需要业务账号，必须说明账号创建/凭据来源、隔离与改密路径，避免所有用户共享高权限账号。
+
+主观审核还要求应用有实用性和合格界面；与已上架应用高度相似时原则上不通过，有显著创新或补足未满足需求的可酌情通过。仅英文界面／指南且缺少必要本地化的应用不予上架，热门且高质量项目由审核人员裁定；复杂应用须提供详尽用户指南。需要业务账号时，普通用户须能获取对应凭据。
 
 ## 3. 构建、验证与提交
 
@@ -36,7 +40,7 @@ lzc-cli appstore copy-image alpine:3.18
 
 ```bash
 lzc-cli --version
-lzc-cli project build -o release.lpk
+lzc-cli project release -o release.lpk
 # 完成安装、升级、权限、免密登录、真实设备测试后，经用户授权再提交：
 lzc-cli appstore publish ./release.lpk
 ```

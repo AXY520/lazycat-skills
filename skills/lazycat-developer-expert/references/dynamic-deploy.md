@@ -60,6 +60,10 @@ request/response 可处理 JSON 等非 HTML 流量；“非 HTML 不注入”只
 - CORS 不要无条件设置 `Access-Control-Allow-Origin: *`，尤其不要与凭据访问组合。
 - 密码、Token、请求 Body 不进入 `ctx.dump` 或日志。
 
+## 上传／下载接入网盘
+
+有上传／下载功能的商店应用必须接入自动拦截文件选择器。接入时读取同技能 `references/file-picker.md`，同时配置 browser inject 与同源 request bridge，保留 Cookie 和选择器返回的 `Owner`，验证共享可写目录。目录选择、普通 HTTP 下载和应用直接发起的 `fetch` / `PUT` 需单独接入。
+
 ## 官方来源
 
 - <https://developer.lazycat.cloud/spec/deploy-params.html>

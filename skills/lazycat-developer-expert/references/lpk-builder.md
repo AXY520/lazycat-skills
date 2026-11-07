@@ -17,7 +17,8 @@
 | lzc-build.yml / lzc-build.dev.yml | `references/build-spec.md` |
 | 静态资源导入/导出 | `references/resource-export.md` |
 | 权限、初始化、持久化、探针 | `references/troubleshooting.md` |
-| 发布与八项审核清单 | `references/store-publish.md` |
+| 发布与审核要求 | `references/store-publish.md` |
+| 上传／下载接入网盘文件选择器 | `references/file-picker.md` |
 
 V2 静态元数据、权限、import_resources 不放 manifest 顶层。dev 只保留差异；package_override 按顶层整体覆盖；image-only 可不带内容归档。buildscript 不得调用 project build。
 
@@ -25,7 +26,7 @@ V2 静态元数据、权限、import_resources 不放 manifest 顶层。dev 只�
 
 ```bash
 lzc-cli --version
-lzc-cli project build -o release.lpk
+lzc-cli project release -o release.lpk
 ```
 
 核查 Build config、tar 内 package.yml/manifest.yml、content 与 resource/镜像 lock。带 #@build/Go template 的文件按真实阶段渲染后严格检查，不接受重复键或把模板替换为任意值后就宣称应用可运行。

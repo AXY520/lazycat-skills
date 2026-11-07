@@ -1,6 +1,6 @@
 ---
 name: lazycat-auth-integration
-description: 懒猫微服应用接入 OIDC、Ingress 身份 Header、API Auth Token、public_path 与应用间用户委托访问时使用的认证安全指南。
+description: 懒猫微服应用接入 OIDC、Ingress 身份 Header 与用户组权限、API Auth Token、public_path 与应用间用户委托访问时使用的认证安全指南。
 ---
 
 # 懒猫微服认证接入
@@ -13,6 +13,7 @@ description: 懒猫微服应用接入 OIDC、Ingress 身份 Header、API Auth To
 | --- | --- | --- | --- |
 | 应用使用统一登录 | OIDC | `1.3.5+` | `references/oidc.md` |
 | 后端识别平台用户 | Ingress 注入 Header | 以目标版本官方文档为准 | `references/http-request-headers.md` |
+| 按用户组做权限判断 | `X-HC-User-Groups` | `1.6.3`（官方未发布） | `references/http-request-headers.md` |
 | 脚本访问系统 API | API Auth Token | `1.4.3+` | `references/api-auth-token.md` |
 | 极少数路径绕过平台 HTTP 登录 | `public_path` | 以目标版本官方文档为准 | `references/public-api.md` |
 | 应用代表当前用户访问自身/其他应用 | `.lzcx` + 委托票据 | `1.5.2+` | `references/app-interconnect.md` |
@@ -58,6 +59,8 @@ services:
 - 仅在请求确定经过平台 Ingress 的信任边界时，才把平台生成的 `X-HC-*` 当作身份依据；不要信任客户端自行传入的同名值。
 - 普通已登录客户端请求通常包含用户与设备上下文；**API Auth Token 不注入 `X-HC-Device-ID`/`X-HC-Device-PeerID`，委托请求也不带完整客户端设备上下文**。
 - `public_path` 上鉴权失败时，平台会清空身份 Header。因此代码必须先检查 `X-HC-User-ID` 是否存在，不能把“路径可访问”当作“用户已登录”。
+
+用户组权限使用稳定组 UUID，展示名称需 Base64 解码；组头缺失不等于未登录，`ADMIN` / `NORMAL` 角色也不是用户组。完整格式、版本状态与测试入口见 `references/http-request-headers.md`。
 
 ## API Auth Token 的正确语义
 

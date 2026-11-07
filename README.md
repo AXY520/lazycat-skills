@@ -24,7 +24,7 @@
 
 校准降低过期风险，不保证每个 Agent 都会遵从指令，也不等于真实设备测试。已知坏示例仍必须维护；官方页冲突需核实目标实现，不能用“官方为准”掩盖冲突。
 
-本轮通用文档核对日期 **2026-10-08**，源仓库基线 `780d7206ce2298ee0a225e0221a993c4723d8e07`；AI Pod 额外读取[独立应用专题](https://developer.lazycat.cloud/aipod/package/spec.html)。版本、权限、资源与上架细节按需加载，而不是把整站一次塞入上下文。
+本轮通用文档核对日期 **2026-11-06**，源仓库基线 `82702da425c5f5324318fc2a75b9ef20bb1311af`（2026-10-30）。补充用户组 Header（v1.6.3，官方标记未发布）、网盘文件选择器与上架补充要求；`lzc-cli 2.0.9` 打包命令已按实际 help 核对为 `project release`。AI Pod 专题仍保留 2026-10-08 的独立核对记录，使用时额外读取[独立应用专题](https://developer.lazycat.cloud/aipod/package/spec.html)。版本、权限、资源与上架细节按需加载，而不是把整站一次塞入上下文。
 
 ## 📦 技能列表 (Available Skills)
 
@@ -74,7 +74,7 @@ lazycat-skills/
 
 ```bash
 python3 -m pip install -r scripts/requirements-check.txt
-python3 -m unittest discover -s scripts/tests -p 'test_*.py' -v
+python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v
 node scripts/build-skills.mjs          # 生成全部
 python3 scripts/check-repo.py          # 结构、共享副本、引用、安全和分发件
 node scripts/build-skills.mjs --check  # 仅校验，不一致则非零退出

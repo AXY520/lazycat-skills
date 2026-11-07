@@ -6,6 +6,8 @@
 
 ### Added · 新增
 
+- 按官方提交 `82702da425c5f5324318fc2a75b9ef20bb1311af` 补充 `X-HC-User-Groups`：v1.6.3 尚未发布、稳定组 UUID、Base64 组名、缺失语义及正常 Ingress 入口信任边界。
+- 新增网盘自动拦截文件选择器接入参考，三个相关技能各自携带 browser inject、同源 request bridge、共享目录与验收说明；校准工具补版本日志、上架补充条款与选择器专题。
 - 纳入 [PR #4](https://github.com/whoamihappyhacking/lazycat-skills/pull/4) 的官方规范校准、规范字段纠错与确定性 `.skill` 生成机制，保留原贡献提交。
 - 六个配置技能独立携带规范抓取工具与校准流程，记录来源和原文摘要；支持错误检测、站点兜底与明确的离线风险状态。
 - 仓库自动检查、隔离工具回归测试与 GitHub Actions，覆盖分发件同步、共享副本、引用、示例、敏感内容和 V2 配置边界。
@@ -14,6 +16,8 @@
 
 ### Changed · 变更
 
+- 2026-11-06 核对通用官方手册最新基线，补上传／下载文件选择器、主观审核与复杂应用指南要求；保留现有独立校准工具及六份共享副本。
+- 更新记录使用 `changelog-maintenance`（`aj-geddes/useful-ai-prompts` @ `3f5182cfd739fc113f4af5244a1cf342ad7f7911`），第三方技能仅保存在已忽略目录。
 - 通用规范按 2026-10-08 拉取的官方源仓库 `780d7206ce2298ee0a225e0221a993c4723d8e07` 核对，明确 V2 的 lzcos >=1.5.0 / CLI >=2.0.0 及各新能力门槛。
 - 更新 package/manifest/build/权限/持久化/上架摘要，补 run_as、entries、VT、FUSE、通知、资源配置、最小权限与八项审核。
 - 高级路由改为自动域名前缀机制；开发机代理使用明确的客户端网络路径。
@@ -23,6 +27,8 @@
 
 ### Fixed · 修复
 
+- 依据实际 `lzc-cli 2.0.9 project --help` 将可执行打包示例改为 `project release`，同步专家指南、构建规范与静态站说明。
+- CI 与本地测试说明禁用 Python 字节码写入，避免导入校准 helper 后生成的缓存被误打包或导致分发件校验失败。
 - 修复 PR 校准命令对 HTTP 错误/HTML 错误页误报成功、同技能引用断链及校准覆盖不足。
 - 修正 API Token 被消费后的应用访问解释、不同调用模式下设备 Header 的可用性、public_path 的业务安全边界。
 - 恢复官方免密注入参数依据，补参数持久化与三阶段成功后提交；区分 browser 与 request/response 的非 HTML 行为。

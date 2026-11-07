@@ -1,6 +1,6 @@
 ---
 name: lazycat-dynamic-deploy
-description: 懒猫微服应用需要部署参数、Go 模板清单渲染或 browser/request/response 脚本注入时使用的动态部署指南。
+description: 懒猫微服应用需要部署参数、Go 模板清单渲染、网盘文件选择器接入或 browser/request/response 脚本注入时使用的动态部署指南。
 ---
 
 # 懒猫微服动态部署与注入
@@ -14,6 +14,7 @@ description: 懒猫微服应用需要部署参数、Go 模板清单渲染或 bro
 | 安装/重配时收集用户输入 | `lzc-deploy-params.yml` | `references/deploy-params.md` |
 | 将部署输入或系统值写入运行清单 | Go `text/template` 渲染 | `references/manifest-render.md` |
 | 按页面或请求动态改写行为 | `application.injects` | `references/injects.md` |
+| 上传／下载接入本地与网盘选择 | browser inject + 同源 request bridge | `references/file-picker.md` |
 
 不要用 deploy render 做请求级路由，也不要用 inject 替代静态可表达的 manifest 配置。
 

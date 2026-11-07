@@ -7,14 +7,14 @@
 - lzc-build.yml：默认/release 配置。
 - lzc-build.dev.yml：只放开发态差异，不能复制整份正式配置。
 - project deploy、info/start/exec/cp/log/sync：优先 dev，不存在时默认配置。
-- project build：默认正式配置，可用 `-f` 指定；project release：正式配置。
+- project release：读取正式配置，可用 `-f` 指定构建文件。已核对 `lzc-cli 2.0.9 project --help`：没有 project build 子命令；其他 CLI 版本按实际 help 核验。
 - 检查命令输出的 Build config，别误把正式实例当成 dev。
 
 ## 2. 常用字段
 
 | 字段 | 语义 |
 | --- | --- |
-| `buildscript` | shell 命令或脚本路径；**不得调用 project build 自己** |
+| `buildscript` | shell 命令或脚本路径；**不得递归调用 project build 或 project release** |
 | `manifest` | lzc-manifest.yml 路径 |
 | `contentdir` | 内容目录；省略或显式空值，不产生 content.tar* |
 | `pkgout` | LPK 输出路径 |

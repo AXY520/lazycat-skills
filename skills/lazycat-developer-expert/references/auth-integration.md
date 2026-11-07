@@ -7,6 +7,7 @@
 | 需求 | 使用 | 关键版本 |
 | --- | --- | --- |
 | 统一登录 | OIDC | `lzcos 1.3.5+` |
+| 按用户组授权 | `X-HC-User-Groups` | `lzcos 1.6.3`（官方未发布） |
 | 自动化访问系统 API | API Auth Token | `lzcos 1.4.3+` |
 | 应用代表用户访问自身/其他应用 | `.lzcx` + 委托票据 | `lzcos 1.5.2+` |
 | 少数路径跳过平台 HTTP 登录 | `application.public_path` | 现场核对目标版本 |
@@ -47,6 +48,12 @@ services:
 - 委托请求不带完整客户端设备上下文。
 - `SAFE_UID` 不是应用入站 Header，只用于 inject 门控/`ctx.safe_uid`。
 - `X-HC-SOURCE` 只能在平台控制的 Ingress/`.lzcx` 信任边界内信任，不能接受客户端伪造值。
+
+### 用户组权限（v1.6.3，官方标记未发布）
+
+真实客户端经正常 Ingress 鉴权后，`X-HC-User-Groups` 是单个 Header 中的 JSON 数组，每项为稳定 UUID `id` 与标准 Base64 编码的 UTF-8 组名 `name`。权限绑定 `id`，名称解码后用于展示；改名不改变 UUID。无组与未登录均省略组头，登录状态仍检查 `X-HC-User-ID`。Ingress 会先清除调用方传入的同名头，组成员或名称修改对新请求立即生效。
+
+`ADMIN` / `NORMAL` 是角色，不是用户组；不假定 API Token 或委托请求也提供组头。测试期间管理员在系统设置站点 `/sys/debug/` 的 `user-groups` 维护成员，尚无正式管理页。核对日期 2026-11-06，官方提交 `82702da425c5f5324318fc2a75b9ef20bb1311af`；完整格式与解码示例按[官方 Header 原文](https://developer.lazycat.cloud/http-request-headers.html#user-groups)校准，发布状态见[版本日志](https://developer.lazycat.cloud/changelog.html)。
 
 ## API Auth Token
 

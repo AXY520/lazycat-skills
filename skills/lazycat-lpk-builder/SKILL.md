@@ -26,6 +26,7 @@ description: 将源码、Docker 镜像或 docker-compose 移植为懒猫微服 L
 | 资源导出/导入 | 读取 `references/resource-export.md` |
 | 权限、初始化、探针、持久化故障 | 读取 `references/troubleshooting.md` |
 | 上架与审核 | 读取 `references/store-publish.md` |
+| 上传／下载接入网盘文件选择器 | 读取 `references/file-picker.md` |
 
 V2 manifest 不放 package/version/name/locales/permissions/import_resources 等静态字段。完整包的内容可选，image-only 不必伪造 contentdir；图标按官方 PNG/商店要求，不能臆造大小限制。
 
@@ -33,7 +34,7 @@ V2 manifest 不放 package/version/name/locales/permissions/import_resources 等
 
 ```bash
 lzc-cli --version
-lzc-cli project build -o release.lpk
+lzc-cli project release -o release.lpk
 ```
 
 检查实际使用的 Build config、最终 tar 包中的 package.yml/manifest.yml、必要资源与镜像 lock。`buildscript` **不得调用 project build**。带 #@build 或 Go template 的原始文件先按真实阶段预处理/渲染，再做严格 YAML 校验，不能忽略重复键或把模板错误当成合法文件。

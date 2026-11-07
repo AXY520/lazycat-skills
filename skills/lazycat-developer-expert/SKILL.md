@@ -22,12 +22,13 @@ LPK V2 至少 **lzcos 1.5.0 + lzc-cli 2.0.0**。package.yml 管静态元数据/�
 | 服务、entries、run_as、VT、运行字段 | `references/manifest-spec.md` |
 | build/dev、embed 镜像、开发机代理 | `references/build-spec.md` |
 | HTTP/前缀域名/Host/四层转发 | `references/advanced-routing.md` |
+| 上传／下载与网盘文件选择器 | `references/file-picker.md` |
 | 安装参数、Go template、三阶段 inject | `references/dynamic-deploy.md` |
-| OIDC、可信身份 Header、API Token、public_path | `references/auth-integration.md` |
+| OIDC、可信身份 Header、用户组权限、API Token、public_path | `references/auth-integration.md` |
 | 代表用户访问自身/其他应用 | `references/app-interconnect.md` |
 | Skill/MCP 等静态资源发现/导入导出 | `references/resource-export.md` |
 | 权限、初始化、探针、持久化问题 | `references/troubleshooting.md` |
-| 商店提交与八项审核 | `references/store-publish.md` |
+| 商店提交与审核要求 | `references/store-publish.md` |
 
 ## 强制边界
 
